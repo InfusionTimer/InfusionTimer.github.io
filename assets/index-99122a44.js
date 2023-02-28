@@ -606,7 +606,7 @@
         </infusion-modal>
     
         `,computed:{filters(){return{inComplete:this.infusions.filter(e=>!e.complete&&e.active),completed:this.infusions.filter(e=>e.complete&&e.active),activePatients:this.patients.filter(e=>e.active)}}},methods:{save(){var e=this.infusions,i=this.patients;localStorage.removeItem("infusions"),localStorage.removeItem("patients"),localStorage.setItem("infusions",JSON.stringify(e)),localStorage.setItem("patients",JSON.stringify(i))},newPatient(e,i,s){this.patients.push({name:e,weight:i,gtt:s,edit:!1,active:!0,Pid:this.patients.length+1}),this.save()},add(e,i,s,a,t,n,o,r,u){this.infusions.push({name:e,concentration:i,units:s,dose:a,time:t,end:1,weightBased:n,gtt:o,active:!0,complete:!1,running:!1,favorites:!1,patient:u,volume:r,id:this.infusions.length+1}),this.save()},erase(){localStorage.removeItem("infusions"),localStorage.removeItem("patients"),location.reload(),this.reset=!1}}},M={components:{InfusionModal:l},template:`
-        <div class="fixed bottom-0">
+        <div class="fixed bottom-0 z-0">
             Infusion Timer&reg
             <label class="italic">
                 version 1.0.0
