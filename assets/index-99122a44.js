@@ -333,19 +333,23 @@
         </section>
     `,methods:{save(){this.$emit("save")}},props:{title:String,infusions:Array,tabSet:Array,patients:Array}},y={components:{InfusionUnits:d},template:`
         <div v-show="currentSearch.length" class="py-4 grid place-items-center overflow-y-auto border-t-2 border-blue-300">
-                <label>
+                <div class="grid grid-cols-5">
+                <div class="col-span-5">
                 <label class="text-blue-800 text-2xl">
-                    {{ medication.name }} 
+                    {{ medication.name }}
                 </label>
+                
                     {{ medConc }}(<infusion-units :infusion="medication"></infusion-units>/mL)
                     {{ medication.u }} <infusion-units :infusion="medication"></infusion-units>
                     in {{ medication.mL }}mL
-                    
+                    </div>
+                    <div class="place-self-end">
                     <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-4 py-2 p-2"
                         @click="add"
                     >
                         +
                     </button>
+</div>
                     </label>
         </div>
     `,methods:{add(){this.$emit("results",this.medication.name,this.medication.units,this.medication.u,this.medication.mL,this.medication.time,this.medication.weightBased)}},computed:{medConc(){return this.medication.u/this.medication.mL}},props:{medication:Object,currentSearch:Array}},S={components:{InfusionModal:l,InfusionSearchl:y},data(){return{currentSearch:"",selectedMed:[{name:"",units:"",u:"",mL:"",medID:""}],medications:[{name:"amiodarone",units:4,u:360,mL:200,time:60,weightBased:!1},{name:"diltiazem",units:4,u:100,mL:100,time:1,weightBased:!1},{name:"fentanyl",units:5,u:1250,mL:25,time:1,weightBased:!1},{name:"heparin",units:6,u:25e3,mL:500,time:1,weightBased:!0},{name:"insulin (non weight based)",units:6,u:100,mL:100,time:1,weightBased:!1},{name:"insulin (weight based)",units:6,u:100,mL:100,time:1,weightBased:!0},{name:"midazolam",units:4,u:25,mL:25,time:1,weightBased:!1},{name:"nicardipine",units:4,u:20,mL:200,time:1,weightBased:!1},{name:"norepinephrine",units:4,u:8,mL:250,time:1,weightBased:!1},{name:"propofol",units:5,u:1e6,mL:100,time:60,weightBased:!0}]}},template:`
