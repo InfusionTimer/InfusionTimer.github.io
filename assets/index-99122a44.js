@@ -334,7 +334,7 @@
     `,methods:{save(){this.$emit("save")}},props:{title:String,infusions:Array,tabSet:Array,patients:Array}},y={components:{InfusionUnits:d},template:`
         <div v-show="currentSearch.length" class="py-4 grid place-items-center overflow-y-auto border-t-2 border-blue-300">
                 <div class="grid grid-cols-5">
-                <div class="col-span-5">
+                <div class="col-span-4">
                 <label class="text-blue-800 text-2xl">
                     {{ medication.name }}
                 </label>
