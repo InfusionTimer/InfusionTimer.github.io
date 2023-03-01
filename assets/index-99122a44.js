@@ -1,5 +1,5 @@
 (function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const n of t)if(n.type==="childList")for(const o of n.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&a(o)}).observe(document,{childList:!0,subtree:!0});function s(t){const n={};return t.integrity&&(n.integrity=t.integrity),t.referrerPolicy&&(n.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?n.credentials="include":t.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function a(t){if(t.ep)return;t.ep=!0;const n=s(t);fetch(t.href,n)}})();const l={template:`
-        <div class="grid place-items-center bg-black w-full h-full overflow-y-auto bg-opacity-60 absolute top-0">
+        <div class="grid place-items-center bg-black w-full h-full overflow-y-auto bg-opacity-60 absolute top-0 z-10">
             <div class="bg-blue-100 rounded-lg p-1 min-w-1/2 max-w-lg min-h-1/2 grid place-items-center">
                 <header class="p-2">
                     <slot name="header">default header</slot>
@@ -333,19 +333,23 @@
         </section>
     `,methods:{save(){this.$emit("save")}},props:{title:String,infusions:Array,tabSet:Array,patients:Array}},y={components:{InfusionUnits:d},template:`
         <div v-show="currentSearch.length" class="py-4 grid place-items-center overflow-y-auto border-t-2 border-blue-300">
-                <label>
+                <div class="grid grid-cols-5">
+                <div class="col-span-4">
                 <label class="text-blue-800 text-2xl">
-                    {{ medication.name }} 
+                    {{ medication.name }}
                 </label>
+                
                     {{ medConc }}(<infusion-units :infusion="medication"></infusion-units>/mL)
                     {{ medication.u }} <infusion-units :infusion="medication"></infusion-units>
                     in {{ medication.mL }}mL
-                    
+                    </div>
+                    <div class="place-self-end">
                     <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-4 py-2 p-2"
                         @click="add"
                     >
                         +
                     </button>
+</div>
                     </label>
         </div>
     `,methods:{add(){this.$emit("results",this.medication.name,this.medication.units,this.medication.u,this.medication.mL,this.medication.time,this.medication.weightBased)}},computed:{medConc(){return this.medication.u/this.medication.mL}},props:{medication:Object,currentSearch:Array}},S={components:{InfusionModal:l,InfusionSearchl:y},data(){return{currentSearch:"",selectedMed:[{name:"",units:"",u:"",mL:"",medID:""}],medications:[{name:"amiodarone",units:4,u:360,mL:200,time:60,weightBased:!1},{name:"diltiazem",units:4,u:100,mL:100,time:1,weightBased:!1},{name:"fentanyl",units:5,u:1250,mL:25,time:1,weightBased:!1},{name:"heparin",units:6,u:25e3,mL:500,time:1,weightBased:!0},{name:"insulin (non weight based)",units:6,u:100,mL:100,time:1,weightBased:!1},{name:"insulin (weight based)",units:6,u:100,mL:100,time:1,weightBased:!0},{name:"midazolam",units:4,u:25,mL:25,time:1,weightBased:!1},{name:"nicardipine",units:4,u:20,mL:200,time:1,weightBased:!1},{name:"norepinephrine",units:4,u:8,mL:250,time:1,weightBased:!1},{name:"propofol",units:5,u:1e6,mL:100,time:60,weightBased:!0}]}},template:`
@@ -606,7 +610,7 @@
         </infusion-modal>
     
         `,computed:{filters(){return{inComplete:this.infusions.filter(e=>!e.complete&&e.active),completed:this.infusions.filter(e=>e.complete&&e.active),activePatients:this.patients.filter(e=>e.active)}}},methods:{save(){var e=this.infusions,i=this.patients;localStorage.removeItem("infusions"),localStorage.removeItem("patients"),localStorage.setItem("infusions",JSON.stringify(e)),localStorage.setItem("patients",JSON.stringify(i))},newPatient(e,i,s){this.patients.push({name:e,weight:i,gtt:s,edit:!1,active:!0,Pid:this.patients.length+1}),this.save()},add(e,i,s,a,t,n,o,r,u){this.infusions.push({name:e,concentration:i,units:s,dose:a,time:t,end:1,weightBased:n,gtt:o,active:!0,complete:!1,running:!1,favorites:!1,patient:u,volume:r,id:this.infusions.length+1}),this.save()},erase(){localStorage.removeItem("infusions"),localStorage.removeItem("patients"),location.reload(),this.reset=!1}}},M={components:{InfusionModal:l},template:`
-        <div class="fixed bottom-0">
+        <div class="fixed bottom-0 z-0">
             Infusion Timer&reg
             <label class="italic">
                 version 1.0.0
