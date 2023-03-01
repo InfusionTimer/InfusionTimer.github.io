@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/src/assets/infusionTimerIcon.png">
+    <script src="node_modules/push.js/bin/push.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infusion Timer</title>
+  </head>
+  <body class="bg-blue-300">
+    <div class="p-2 bg-sky-600 flex">
+      <img src="src/assets/infusionTimeLogo.png" class="bg-blue-400 p-2 rounded w-1/2 max-w-xs">
+    </div>
+    <div id="app"></div>
+    <script type="module">
+      import App from './src/main.js';
+      Vue.createApp(App).mount('#app');
+    </script>
+  </body>
+</html>
