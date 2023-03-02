@@ -91,7 +91,7 @@ export default{
                     u: 250000,
                     mL: 250,
                     time: 60, 
-                    weightBased: false
+                    weightBased: true,
                 },
                 //L
                 //M
