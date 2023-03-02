@@ -21,8 +21,8 @@ export default{
                 {
                     name: "amiodarone",
                     units: 4,
-                    u: 360,
-                    mL: 200,
+                    u: 250,
+                    mL: 250,
                     time: 60, 
                     weightBased: false,
                 },
@@ -32,18 +32,19 @@ export default{
                 {
                     name: "diltiazem",
                     units: 4,
-                    u: 100,
-                    mL: 100,
+                    u: 125,
+                    mL: 125,
                     time: 1,
                     weightBased: false, 
                 },
                 //E
+                
                 //F
                 {
                     name: "fentanyl",
                     units: 5,
-                    u: 1250,
-                    mL: 25,
+                    u: 1500,
+                    mL: 30,
                     time: 1, 
                     weightBased: false,
                 },
@@ -81,8 +82,8 @@ export default{
                 {
                     name: "midazolam",
                     units: 4,
-                    u: 25,
-                    mL: 25,
+                    u: 150,
+                    mL: 30,
                     time: 1, 
                     weightBased: false,
                 },
@@ -90,8 +91,8 @@ export default{
                 {
                     name: "nicardipine",
                     units: 4,
-                    u: 20,
-                    mL: 200,
+                    u: 25,
+                    mL: 250,
                     time: 1, 
                     weightBased: false,
                 },
