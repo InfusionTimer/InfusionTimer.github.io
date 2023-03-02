@@ -77,6 +77,14 @@ export default{
                 },
                 //J
                 //K
+                {
+                    name: "ketamine",
+                    units: 5,
+                    u: 250000,
+                    mL: 250,
+                    time: 60, 
+                    weightBased: false
+                }
                 //L
                 //M
                 {
@@ -99,9 +107,9 @@ export default{
                 {
                     name: "norepinephrine",
                     units: 4,
-                    u: 8,
+                    u: 8000,
                     mL: 250,
-                    time: 1, 
+                    time: 60, 
                     weightBased: false,
 
                 },
