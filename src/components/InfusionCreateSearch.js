@@ -30,6 +30,14 @@ export default{
                 //C
                 //D
                 {
+                    name: "dexmedetomidine",
+                    units: 5,
+                    u: 400,
+                    mL: 100,
+                    time: 1,
+                    weightBased: true, 
+                },
+                {
                     name: "diltiazem",
                     units: 4,
                     u: 125,
@@ -84,7 +92,7 @@ export default{
                     mL: 250,
                     time: 60, 
                     weightBased: false
-                }
+                },
                 //L
                 //M
                 {
