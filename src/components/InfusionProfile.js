@@ -1,11 +1,12 @@
 
+import InfusionTitle from "./InfusionTitle.js"
 import InfusionAgreement from "./InfusionAgreement.js"
 import Infusions from "./Infusions.js"
 import InfusionFooter from "./InfusionFooter.js"
 import InfusionNotification from "./InfusionNotification.js"
 
 export default {
-    components: { Infusions, InfusionAgreement, InfusionFooter, InfusionNotification }, 
+    components: { InfusionTitle, Infusions, InfusionAgreement, InfusionFooter, InfusionNotification }, 
 
     template: `
         
