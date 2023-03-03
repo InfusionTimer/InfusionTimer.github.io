@@ -9,11 +9,17 @@ export default {
 
     template: `
         
-        <infusions></infusions>
+        <div class="h-screen">
+            <div class="overflow-y-auto h-[97vh]">
+                <infusion-title></infusion-title>
+                <infusions></infusions>
+            </div>
+            <div class="absolute bottom-0">
+                <infusion-footer></infusion-footer>
+            </div>
+        </div>
         
         <infusion-agreement></infusion-agreement>
-
-        <infusion-footer></infusion-footer>
 
         <infusion-notification></infusion-notification>
     `,
