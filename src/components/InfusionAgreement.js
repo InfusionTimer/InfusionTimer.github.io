@@ -20,7 +20,7 @@ export default{
                 </template>
                 <template #default>
                     This app is for informational purposes only and should not replace monitoring medications. 
-                    Infusion timer uses start times and calculates and end time to estimate volumes that does 
+                    Infusion timer uses start times and end times to estimate volumes. This app does 
                     not reflect an 100% accurate total. This app makes no claims regarding accuracy, and all 
                     calculations should be checked and confirmed. Please consult a qualified professional for 
                     medical questions. 
