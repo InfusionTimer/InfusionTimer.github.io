@@ -11,7 +11,7 @@ export default{
             </template>
             <template #default>
                 Infusion Timer&reg; is a free to use web app for calculing infusion times on your phone!
-                This app does should not replace monitoring medications, and all calculations should be checked
+                This app should not replace monitoring medications, and all calculations should be checked
                 for accuracy. Please consult a qualified professional for medical questions.
                 <div class="mt-2">
                     For any inquiries please email at:
