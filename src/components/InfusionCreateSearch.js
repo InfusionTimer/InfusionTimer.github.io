@@ -1,8 +1,9 @@
 import InfusionModal from "./InfusionModal.js";
 import InfusionSearchl from "./InfusionSearchl.js"
+import InfusionButton from "./InfusionButton.js";
 
 export default{
-    components: { InfusionModal, InfusionSearchl },
+    components: { InfusionModal, InfusionSearchl, InfusionButton },
 
     data(){
         return{
@@ -168,11 +169,9 @@ export default{
                 </template>
                 <template #footer>
                     <div>
-                        <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-4 py-2 p-2" 
-                            @click="this.$emit('close')"
-                        >
+                        <infusion-button class="ml-0 mt-2 md:ml-2 sm:mt-0" size="small" theme="white" @click="$emit('close')">
                             Cancel
-                        </button>
+                        </infusion-button>
                     </div>
                 </template>
             </infusion-modal>
