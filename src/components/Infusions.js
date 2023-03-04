@@ -92,11 +92,12 @@ export default {
                     Delete information?  
             </template>
             <template #default>
-                All patient and medication information will be erased. 
+                Are you sure you want to delete all patient and medication information? This 
+                action cannot be undone. 
             </template>
             <template #footer>
                 <infusion-button size="small" @click="erase">
-                    Add
+                    Delete
                 </infusion-button>
 
                 <infusion-button class="ml-0 mt-2 md:ml-2 sm:mt-0" size="small" theme="white" @click="reset = false">
