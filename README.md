@@ -1,2 +1,2 @@
 # InfusionTimer.github.io
-Infusion Timer Version 1.0.0
+Infusion Timer Version 1.0.2
