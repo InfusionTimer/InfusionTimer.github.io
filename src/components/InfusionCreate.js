@@ -16,7 +16,7 @@ export default{
                         Search: Look up a medication from the library
                     </div>
                     <div>
-                        Add Med: Input a medidcation from scratch. 
+                        Add Med: Input a medication from scratch. 
                     </div>
                 </template>
                 <template #footer>
