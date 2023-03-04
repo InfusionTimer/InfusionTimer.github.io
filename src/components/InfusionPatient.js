@@ -1,8 +1,9 @@
 import InfusionFiltered from "./InfusionFiltered.js"
 import InfusionPatientEdit from "./InfusionPatientEdit.js"
+import InfusionButton from "./InfusionButton.js"
 
 export default {
-    components: { InfusionFiltered, InfusionPatientEdit },
+    components: { InfusionFiltered, InfusionPatientEdit, InfusionButton },
 
     data(){
         return{
@@ -28,9 +29,9 @@ export default {
                         
                         <div v-show="ptExpand" class="grid grid-cols-3">
                             <div>
-                                <button @click="patient.edit = true" class="text-white rounded px-7 py-2 bg-blue-600 hover:bg-blue-800">
+                                <infusion-button @click="patient.edit = true">
                                     Edit
-                                </button>
+                                </infusion-button>
                             </div>
 
                             <div class="place-self-center">
@@ -38,9 +39,9 @@ export default {
                             </div>  
 
                             <div class="place-self-end">
-                                <button @click="erase" class="text-white rounded px-4 py-2 pr-5 bg-blue-600 hover:bg-blue-800">
+                                <infusion-button class="mb-4 sm:mb-0" @click="erase">
                                     Delete
-                                </button>
+                                </infusion-button>
                             </div>
                         </div>
                     

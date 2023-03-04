@@ -1,7 +1,8 @@
 import InfusionModal from "./InfusionModal.js"
+import InfusionButton from "./InfusionButton.js";
 
 export default {
-    components: { InfusionModal },
+    components: { InfusionModal, InfusionButton },
 
     template: `
 
@@ -17,21 +18,15 @@ export default {
                 </span>
             </label>
             <label v-show="!infusion.complete">
-                <button v-if="!infusion.running" @click="timer" 
-                    class="text-white bg-blue-600 hover:bg-blue-800 
-                    rounded px-5 p-2"
-                >
+                <infusion-button v-if="!infusion.running" @click="timer">
                     Start
-                </button>
+                </infusion-button>
             </label>
         
             <label v-show="infusion.running === true">
-                <button @click="stop" 
-                    class="text-white bg-blue-600 hover:bg-blue-800 
-                    rounded px-5 py-2 p-2"
-                >
+                <infusion-button @click="stop">
                     Stop
-                </button>
+                </infusion-button>
             </label>
         </div> 
     
@@ -45,11 +40,9 @@ export default {
         </div>
 
         <div class="flex justify-center border-8 border-blue-100" v-if="infusion.complete === true">
-            <button @click="restart" class="text-white bg-blue-600 hover:bg-blue-800 
-                border-2 rounded border-blue-200 px-7 py-2 p-2"
-            >
+            <infusion-button @click="restart">
                 Restart
-            </button>
+            </infusion-button>
         </div>
     `,
 

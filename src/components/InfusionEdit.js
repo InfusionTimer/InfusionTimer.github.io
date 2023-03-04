@@ -1,7 +1,8 @@
 import InfusionUnits from "./InfusionUnits.js"
+import InfusionButton from "./InfusionButton.js";
 
 export default {
-    components: { InfusionUnits },
+    components: { InfusionUnits, InfusionButton },
 
     template: `
     <div class="border-b-2 border-blue-100">
@@ -55,11 +56,9 @@ export default {
                 Favorite: 
                 <input type="checkbox" v-model="infusion.favorites" />
             </div>
-            <button class="text-white bg-blue-600 hover:bg-blue-800 
-                rounded px-4 py-2 p-2" @click="corrected"
-            >
-                Save
-            </button>
+                <infusion-button @click="corrected">
+                    Save
+                </infusion-button>
         </div>
     </div>
     `,

@@ -1,4 +1,8 @@
+import InfusionButton from "./InfusionButton.js";
+
 export default {
+    components: { InfusionButton },
+
     template: `
         <div class="overflow bg-blue-200 grid place-items-center border-b-8 border-blue-100 space-y-2">
             <div class="text-blue-800 text-2xl">
@@ -18,11 +22,9 @@ export default {
             </div>
             
             <div class="place-self-start">    
-                <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-4 py-2 p-2"
-                    @click="corrected"    
-                >
+                <infusion-button @click="corrected">
                     Save
-                </button>
+                </infusion-button>
             </div>
         </div>
     `,

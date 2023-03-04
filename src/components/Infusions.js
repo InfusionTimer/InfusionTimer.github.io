@@ -1,11 +1,12 @@
 import InfusionTab from "./InfusionTab.js"
+import InfusionButton from "./InfusionButton.js";
 import InfusionList from "./InfusionList.js"
 import InfusionCreate from "./InfusionCreate.js";
 import InfusionPatientCreate from "./InfusionPatientCreate.js";
 import InfusionModal from "./InfusionModal.js";
 
 export default {
-    components: { InfusionTab, InfusionList, InfusionCreate, InfusionPatientCreate, InfusionModal },
+    components: { InfusionTab, InfusionButton, InfusionList, InfusionCreate, InfusionPatientCreate, InfusionModal },
 
     data() {
         if(!localStorage.getItem("infusions")){var infusionP = []}
@@ -40,31 +41,29 @@ export default {
                 <infusion-tab title="Completed" :tabSet="tabSet"></infusion-tab>
             </div>
             <div class="place-self-end">
-                <button v-model="newMenu" @click="newMenu = !newMenu" 
-                    class="place-self-end text-gray-300 font-bold text-lg bg-blue-600 
-                    rounded px-4 py-2 hover:bg-blue-800"
-                >
+                <infusion-button @click="newMenu = !newMenu">
                     +
-                </button>
+                </infusion-button>
             </div>
         </div>
-        <div v-show="newMenu" class="flex justify-end absolute right-0">
-            <button @click="addPatient = true, newMenu = false" class="text-white bg-blue-600 hover:bg-blue-800
-                px-4 py-2 border-8 border-blue-400"
+        <div v-show="newMenu" class="flex justify-end absolute right-0 space-x-2 bg-blue-400 border-8 border-blue-400">
+            <button @click="addPatient = true, newMenu = false" class="justify-center rounded-md 
+                px-3 py-2 text-sm font-semibold shadow-sm text-white bg-blue-500 hover:bg-blue-600"
             >
                 New pt. 
             </button>
             <div>
-            <button @click="addMed = true, newMenu = false" class="text-white bg-blue-600 hover:bg-blue-800
-                px-4 py-2 border-8 border-blue-400" :disabled="!filters.activePatients.length"
+            <button @click="addMed = true, newMenu = false" class="justify-center rounded-md 
+                px-3 py-2 text-sm font-semibold shadow-sm text-white bg-blue-500 hover:bg-blue-600" 
+                :disabled="!filters.activePatients.length"
             >
                 New Med 
             </button>
             </div>
 
             <div>
-                <button @click="reset = true, newMenu = false" class="text-white bg-blue-600 hover:bg-blue-800
-                    px-4 py-2 border-8 border-blue-400"
+                <button @click="reset = true, newMenu = false" class="justify-center rounded-md 
+                    px-3 py-2 text-sm font-semibold shadow-sm text-white bg-blue-500 hover:bg-blue-600"
                 >
                     Reset 
                 </button>
@@ -90,26 +89,19 @@ export default {
         
         <infusion-modal v-if="reset">
             <template #header>
-                <label class="flex text-blue-800 text-xl">
                     Delete information?  
-                </label>
             </template>
             <template #default>
                 All patient and medication information will be erased. 
             </template>
             <template #footer>
-                <div class="flex gap-16">
-                    <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-7 py-2 p-2" 
-                        @click="erase"
-                    >
-                        Erase
-                    </button>
+                <infusion-button size="small" @click="erase">
+                    Add
+                </infusion-button>
 
-                    <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-7 py-2 p-2" 
-                        @click="reset = false"
-                    >
-                        Cancel
-                    </button>
+                <infusion-button class="ml-0 mt-2 md:ml-2 sm:mt-0" size="small" theme="white" @click="reset = false">
+                    Cancel
+                </infusion-button>
                 </div>
             </template>
         </infusion-modal>
