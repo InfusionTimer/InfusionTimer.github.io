@@ -13,7 +13,7 @@ export default {
         <div v-if="about">
             <infusion-about @close="about = false"></infusion-about>
         </div>
-        <div class="text-sm md:text-lg">
+        <div class="bg-blue-300 text-sm md:text-lg">
             Infusion Timer&reg;
             <label class="italic">
                 version 1.0.2
