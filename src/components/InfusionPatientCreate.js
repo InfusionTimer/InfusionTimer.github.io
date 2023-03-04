@@ -1,7 +1,8 @@
+import InfusionButton from "./InfusionButton.js";
 import InfusionModal from "./InfusionModal.js";
 
 export default{
-    components: { InfusionModal },
+    components: { InfusionButton, InfusionModal },
 
 
     data() {
@@ -15,34 +16,24 @@ export default{
     template: `
         <infusion-modal v-show="addPatient">
             <template #header>
-                <label class="flex text-blue-800 text-xl">
                     Add a new patient:
-                </label>
             </template>
             <template #default>
-                <div class="grid place-items-center space-y-2">
                     <p>Patient Initials:</p>
                     <input class="p-2 border border-gray-800" v-model="newName" placeholder="Patient Initials..." maxlength="3" />
                     <p>Patient Weight<label class="italic">(kg)</label>:</p>
                     <input class="p-2 border border-gray-800" v-model="newWeight" placeholder="kg..."/>
                     <p>Drop Factor<label class="italic">(Optional for gravity drips)</label>:</p>
                     <input class="p-2 border border-gray-800" v-model="newGtt" placeholder="gtt/mL..." /></p>
-                </div>
             </template>
             <template #footer>
-                <div class="flex gap-16">
-                    <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-7 py-2 p-2" 
-                        @click="newPatient"
-                    >
-                        Add
-                    </button>
+                <infusion-button size="small" @click="newPatient">
+                    Add
+                </infusion-button>
 
-                    <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-7 py-2 p-2" 
-                        @click="this.$emit('close')"
-                    >
-                        Cancel
-                    </button>
-                </div>
+                <infusion-button size="small" theme="white" @click="$emit('close')" class="ml-0 sm:ml-2 mt-2 sm:mt-0">
+                    Cancel
+                </infusion-button>
             </template>
         </infusion-modal>
     `,
