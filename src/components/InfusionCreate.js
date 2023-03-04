@@ -1,39 +1,32 @@
 import InfusionModal from "./InfusionModal.js";
 import InfusionCreateSearch from "./InfusionCreateSearch.js"
+import InfusionButton from "./InfusionButton.js";
 
 export default{
-    components: { InfusionModal, InfusionCreateSearch },
+    components: { InfusionModal, InfusionCreateSearch, InfusionButton },
 
     template: `
         <div v-show="addMed">
             <infusion-modal>
                 <template #header>
-                    <label class="flex text-blue-800 text-xl">
                         Search or Add new Med
-                    </label>
                 </template>
                 <template #default>
                     <div>
-                        Search: Look up a medication in the library
+                        Search: Look up a medication from the library
                     </div>
                     <div>
-                        Add Med: Make a med from scratch. 
+                        Add Med: Input a medidcation from scratch. 
                     </div>
                 </template>
                 <template #footer>
-                    <div class="flex gap-16">
-                        <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-4 py-2 p-2"
-                            @click="searchMed = true, this.$emit('close')"
-                        >
-                            Search
-                        </button>
+                    <infusion-button class="ml-0 md:ml-2 md:mt-0" size="small" @click="searchMed = true, $emit('close')">
+                        Search
+                    </infusion-button>
 
-                        <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-4 py-2 p-2" 
-                            @click="createMed = true, this.$emit('close')"
-                        >
-                            Add Med
-                        </button>
-                    </div>
+                    <infusion-button class="mt-2 md:mt-0" size="small" theme="white" @click="createMed = true, $emit('close')">
+                        Add Med
+                    </infusion-button>
                 </template>
             </infusion-modal>
         </div>
@@ -41,22 +34,21 @@ export default{
         <div v-if="createMed">
             <infusion-modal>
                 <template #header>
-                    <label class="flex text-blue-800 text-xl">
                         Create a medication:
                     </label>
                 </template>
                 <template #default>
-                    <div class="grid place-items-center space-y-2 whitespace-nowrap ">
-                
+                    <div class="space-y-2 md:grid md:place-items-center md:pl-24">
                         <p>Patient:</p> 
                         <select v-model="currentName" class="p-2 border border-gray-800" placeholder="newPt" >
                             <option v-for="patient in patients" v-show="patient.name" :value="patient.name">{{ patient.name }}</option>
                         </select>
+
                         <p>Medication:</p>
-                        <input class="p-2 border border-gray-800" v-model="newInfusion" placeholder="Medications..." />
+                        <input class="md:w-full p-2 border border-gray-800" v-model="newInfusion" placeholder="Medications..." />
                 
                         <p>Dose:</p>
-                        <input class="p-2 border border-gray-800" v-model="newRate" placeholder="Dose..." />
+                        <input class="md:w-full p-2 border border-gray-800" v-model="newRate" placeholder="Dose..." />
                 
                         <p>Units</p>
                         <select name="units" v-model="newUnits" placeholder="1" class="p-2 border border-gray-800">
@@ -67,18 +59,22 @@ export default{
                             <option value="5">mcg</option>
                             <option value="6">u</option>
                         </select>
+
                         <p>Time</p>
                         <select name="time" v-model="newTime" placeholder="1" class="p-2 border border-gray-800">
                             <option value="1">hour</option>
                             <option value="60">minute</option>
                         </select>
+
                         <p v-show="newUnits > 1 && newUnits < 3">Drop factor: <input type="checkbox" v-model="newGtt"></p>
                         <p v-show="newUnits > 2">Concentration u/mL</p>
                         <p v-show="newUnits > 2"><input v-model="newU" placeholder="U..." class="p-2 border border-gray-800"/></p>
                         <p v-show="newUnits > 2"><input v-model="newML" placeholder="mL..." class="p-2 border border-gray-800"/></p>
                         <p v-show="newUnits > 2">Weight based: <input type="checkbox" v-model="weightBased"></p>
+                        
                         <p>Volume:</p>
-                        <input class="p-2 border border-gray-800" v-model="newVolume" placeholder="mL..." />
+                        <input class="md:w-full p-2 border border-gray-800" v-model="newVolume" placeholder="mL..." />
+                        
                         <p>Percent to Complete</p>
                         <select name="Percent Completed" v-model="percentComplete" placeholder="1" class="p-2 border border-gray-800">
                             <option value="1">100%</option>
@@ -86,21 +82,17 @@ export default{
                             <option value=".5">50%</option>
                             <option value=".25">25%</option>
                         </select>
-                
                     </div>
                 </template>
                 <template #footer>
-                    <div class="flex gap-16">
-                        <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-4 py-2 p-2" 
-                            @click="add"
-                        >
-                            Add
-                        </button>
-                        <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-4 py-2 p-2" 
-                            @click="createMed = false, this.$emit('close')"
-                        >
-                            Cancel
-                        </button>
+                    <div>
+                    <infusion-button size="small" @click="add">
+                        Add
+                    </infusion-button>
+
+                    <infusion-button class="ml-0 mt-2 md:ml-2 md:mt-0" size="small" theme="white" @click="createMed = false, $emit('close')">
+                        Cancel
+                    </infusion-button>
                     </div>
                 </template>
             </infusion-modal>
