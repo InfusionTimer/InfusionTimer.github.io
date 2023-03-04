@@ -16,7 +16,7 @@ export default{
                 <div class="mt-2">
                     For any inquiries please email at:
                     <label class="text-blue-900 underline">
-                        <a href="mailto: infusiontimer.gmail.com">
+                        <a href="mailto:infusiontimer.gmail.com">
                             infusiontimer.gmail.com
                         </a>
                     </label>
