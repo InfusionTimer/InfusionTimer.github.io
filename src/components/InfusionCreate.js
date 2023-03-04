@@ -108,7 +108,7 @@ export default{
 
     data() {
         return {
-            createMed: true,
+            createMed: false,
             searchMed: false,
 
             currentName: '',
