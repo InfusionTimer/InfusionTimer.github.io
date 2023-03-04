@@ -15,7 +15,7 @@ export default {
                 <infusion-title></infusion-title>
                 <infusions></infusions>
             </div>
-            <div class="absolute bottom-0">
+            <div class="fixed bottom-0">
                 <infusion-footer></infusion-footer>
             </div>
         </div>
