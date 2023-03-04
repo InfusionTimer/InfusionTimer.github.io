@@ -115,7 +115,7 @@ export default{
                 },
                 {
                     name: "norepinephrine",
-                    units: 4,
+                    units: 5,
                     u: 8000,
                     mL: 250,
                     time: 60, 
