@@ -1,10 +1,11 @@
 import InfusionUnits from "./InfusionUnits.js";
+import InfusionButton from "./InfusionButton.js";
 
 export default{
-    components: { InfusionUnits },
+    components: { InfusionUnits, InfusionButton },
 
     template: `
-        <div v-show="currentSearch.length" class="py-4 grid place-items-center overflow-y-auto border-t-2 border-blue-300">
+        <div v-show="currentSearch.length" class="py-4 grid place-items-center overflow-y-auto border-y-2 border-blue-300">
                 <div class="grid grid-cols-5">
                     <div class="col-span-4">
                         <label class="text-blue-800 text-2xl">
@@ -15,11 +16,9 @@ export default{
                             in {{ medication.mL }}mL
                     </div>
                     <div class="place-self-end">
-                        <button class="text-white bg-blue-600 hover:bg-blue-800 rounded px-4 py-2 p-2"
-                            @click="add"
-                        >
+                        <infusion-button size="small" @click="add">
                             +
-                        </button>
+                        </infusion-button>
                     </div>
                 </div>
         </div>
