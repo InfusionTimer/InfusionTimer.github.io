@@ -20,11 +20,11 @@ export default{
                     </div>
                 </template>
                 <template #footer>
-                    <infusion-button class="ml-0 md:ml-2 md:mt-0" size="small" @click="searchMed = true, $emit('close')">
+                    <infusion-button size="small" @click="searchMed = true, $emit('close')">
                         Search
                     </infusion-button>
 
-                    <infusion-button class="mt-2 md:mt-0" size="small" theme="white" @click="createMed = true, $emit('close')">
+                    <infusion-button class="ml-0 sm:ml-2 mt-2 sm:mt-0" size="small" theme="white" @click="createMed = true, $emit('close')">
                         Add Med
                     </infusion-button>
                 </template>
@@ -38,7 +38,7 @@ export default{
                     </label>
                 </template>
                 <template #default>
-                    <div class="space-y-2 md:grid md:place-items-center md:pl-24">
+                    <div class="space-y-2">
                         <p>Patient:</p> 
                         <select v-model="currentName" class="p-2 border border-gray-800" placeholder="newPt" >
                             <option v-for="patient in patients" v-show="patient.name" :value="patient.name">{{ patient.name }}</option>
@@ -90,7 +90,7 @@ export default{
                         Add
                     </infusion-button>
 
-                    <infusion-button class="ml-0 mt-2 md:ml-2 md:mt-0" size="small" theme="white" @click="createMed = false, $emit('close')">
+                    <infusion-button class="ml-0 mt-2 md:ml-2 sm:mt-0" size="small" theme="white" @click="createMed = false, $emit('close')">
                         Cancel
                     </infusion-button>
                     </div>
@@ -108,7 +108,7 @@ export default{
 
     data() {
         return {
-            createMed: false,
+            createMed: true,
             searchMed: false,
 
             currentName: '',
