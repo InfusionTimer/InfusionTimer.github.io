@@ -1,9 +1,10 @@
 import InfusionUnits from "./InfusionUnits.js"
+import InfusionButton from "./InfusionButton.js"
 import InfusionEdit from "./InfusionEdit.js"
 import InfusionTimer from "./InfusionTimer.js"
 
 export default {
-    components: { InfusionUnits, InfusionEdit, InfusionTimer },
+    components: { InfusionUnits, InfusionButton, InfusionEdit, InfusionTimer },
 
     template: `
         <li v-if="!infusion.edit">
@@ -21,10 +22,7 @@ export default {
                         </label>
                     </div>
                     <div class="justify-self-end">
-                        <button @click="deleteDrip" class="text-white bg-blue-600 hover:bg-blue-800 
-                        rounded p-2 px-4">
-                            &times
-                        </button>
+                        <infusion-button @click="deleteDrip">&times</infusion-button>
                     </div>
                 </div>
             
@@ -53,11 +51,9 @@ export default {
                         <input type="checkbox" @change="save" v-model="infusion.favorites" />
                         Favorite
                     </div>
-            	    <button class="text-white bg-blue-600 hover:bg-blue-800 
-                        rounded px-4 py-2 p-2" @click="infusion.edit = true"
-                    >
-                        Edit
-                    </button>
+                        <infusion-button @click="infusion.edit = true">
+                            Edit
+                        </infusion-button>
         	    </div>
             </div>
         </li>
