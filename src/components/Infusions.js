@@ -3,10 +3,10 @@ import InfusionButton from "./InfusionButton.js";
 import InfusionList from "./InfusionList.js"
 import InfusionCreate from "./InfusionCreate.js";
 import InfusionPatientCreate from "./InfusionPatientCreate.js";
-import InfusionModal from "./InfusionModal.js";
+import InfusionDeleteM from "./InfusionDeleteM.js";
 
 export default {
-    components: { InfusionTab, InfusionButton, InfusionList, InfusionCreate, InfusionPatientCreate, InfusionModal },
+    components: { InfusionTab, InfusionButton, InfusionList, InfusionCreate, InfusionPatientCreate, InfusionDeleteM },
 
     data() {
         if(!localStorage.getItem("infusions")){var infusionP = []}
@@ -86,26 +86,11 @@ export default {
         <infusion-patient-create :addPatient="addPatient" :patients="filters.activePatients" @newPatient="newPatient" @close="addPatient = false"></infusion-patient-create>
         <infusion-create :addMed="addMed" @close="addMed = false" :patients="filters.activePatients" @add="add"></infusion-create>
 
-        
-        <infusion-modal v-if="reset">
-            <template #header>
-                    Delete information?  
-            </template>
-            <template #default>
-                Are you sure you want to delete all patient and medication information? This 
-                action cannot be undone. 
-            </template>
-            <template #footer>
-                <infusion-button size="small" @click="erase">
-                    Delete
-                </infusion-button>
 
-                <infusion-button class="ml-0 mt-2 md:ml-2 sm:mt-0" size="small" theme="white" @click="reset = false">
-                    Cancel
-                </infusion-button>
-                </div>
-            </template>
-        </infusion-modal>
+        <infusion-delete-m v-if="reset" title="information" @erase="erase" @close="reset = false">
+            Are you sure you want to delete all patient and medication information? This 
+            action cannot be undone. 
+        </infusion-delete-m>
     
         `,
 

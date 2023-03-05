@@ -2,9 +2,16 @@ import InfusionUnits from "./InfusionUnits.js"
 import InfusionButton from "./InfusionButton.js"
 import InfusionEdit from "./InfusionEdit.js"
 import InfusionTimer from "./InfusionTimer.js"
+import InfusionDeleteM from "./InfusionDeleteM.js"
 
 export default {
-    components: { InfusionUnits, InfusionButton, InfusionEdit, InfusionTimer },
+    components: { InfusionUnits, InfusionButton, InfusionEdit, InfusionTimer, InfusionDeleteM },
+
+    data(){
+        return { 
+            eraseM: false, 
+        }
+    },
 
     template: `
         <li v-if="!infusion.edit">
@@ -22,7 +29,9 @@ export default {
                         </label>
                     </div>
                     <div class="justify-self-end">
-                        <infusion-button @click="deleteDrip">&times</infusion-button>
+                        <infusion-button @click="eraseM = true">
+                            &times
+                        </infusion-button>
                     </div>
                 </div>
             
@@ -61,6 +70,10 @@ export default {
             <infusion-edit @save="save" :infusion="infusion" :patient="patient">
             </infusion-edit>
         </li>
+
+        <infusion-delete-m v-if="eraseM" title="medication" @erase="deleteDrip" @close="eraseM = false">
+            Are you sure you want to delete this medication?
+        </infusion-delete-m>
     `,
 
     props: {

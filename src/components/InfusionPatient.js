@@ -1,13 +1,15 @@
 import InfusionFiltered from "./InfusionFiltered.js"
 import InfusionPatientEdit from "./InfusionPatientEdit.js"
 import InfusionButton from "./InfusionButton.js"
+import InfusionDeleteM from "./InfusionDeleteM.js"
 
 export default {
-    components: { InfusionFiltered, InfusionPatientEdit, InfusionButton },
+    components: { InfusionFiltered, InfusionPatientEdit, InfusionButton, InfusionDeleteM },
 
     data(){
         return{
             ptExpand: false,
+            eraseP: false,
         }
     },
 
@@ -39,7 +41,7 @@ export default {
                             </div>  
 
                             <div class="place-self-end">
-                                <infusion-button class="mb-4 sm:mb-0" @click="erase">
+                                <infusion-button class="mb-4 sm:mb-0" @click="eraseP = true">
                                     Delete
                                 </infusion-button>
                             </div>
@@ -60,6 +62,10 @@ export default {
                 </ul>
             </li>
         </ul>
+
+        <infusion-delete-m v-if="eraseP" title="patient" @erase="erase" @close="eraseP = false">
+            Are you sure you want to delete this patient?
+        </infusion-delete-m>
     `,
 
     props: {
