@@ -15,6 +15,9 @@ export default{
 
     template: `
         <infusion-modal v-show="addPatient">
+            <template #image>
+                <img src="/src/assets/infusionPatientIcon.png" width="30" height="30" aria-hidden="true">
+            </template>
             <template #header>
                     Add a new patient:
             </template>
