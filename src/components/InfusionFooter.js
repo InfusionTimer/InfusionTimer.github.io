@@ -14,7 +14,7 @@ export default {
             <infusion-about @close="about = false"></infusion-about>
         </div>
         <div class="bg-blue-300 w-screen text-sm md:text-lg">
-            Infusion Timer&copy; 2023
+            <small>Infusion Timer&copy; 2023</small>
             <label class="italic">
                 version 1.0.2
             </label>
